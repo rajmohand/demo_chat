@@ -1,0 +1,76 @@
+<h1>New User</h1>
+
+<div>
+<%= form_for (@user) do |f| %>
+
+<table>
+  <tr>
+    <td>
+      <%= f.label :name %>
+    </td>
+    <td>
+      <%= f.text_field :name %>
+    </td>
+    </tr>
+   <tr>
+    <td>
+       <%= f.label :email %>
+    </td>
+    <td>
+        <%= f.text_field :email %>
+    </td>
+    </tr>
+    <tr>
+    <td>
+       <%= f.label :password %>
+    </td>
+    <td>
+        <%= f.password_field :password %>
+    </td>
+    </tr>
+     <tr>
+    <td>
+       <%= f.label :contactno %>
+    </td>
+    <td>
+       <%= f.text_field :contactno %>
+    </td>
+    </tr>
+     <tr>
+    <td>
+     <%= f.label :age %>
+    </td>
+    <td>
+     <%= f.text_field :age %>
+    </td>
+    </tr>
+      <tr>
+    <td>
+     <%= f.label :about %>
+    </td>
+    <td>
+     <%= f.text_field :about %>
+    </td>
+    </tr>
+    <tr>
+    <td>
+     <%= f.label :address %>
+    </td>
+    <td>
+    <%= f.text_field :address %>
+    </td>
+    </tr>
+  </table>
+
+<div class="actions" style="text-align: center;position: fixed;top: 45%;left: 9%;">
+  <%= f.submit %>
+</div>
+
+<% end %>
+
+<div style="text-align: center;position: fixed;top: 48%;left: 11%;">
+   or
+  <br>
+<%= link_to 'login', login_path %>
+<div >
+</div>

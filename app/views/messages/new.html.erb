@@ -1,0 +1,42 @@
+<h1>New Message</h1>
+
+<div>
+<%= form_for (@message) do |f| %>
+<table>
+  <tr>
+    <td>
+    <%= f.label :sendername %>
+    </td>
+    <td>
+      <%= f.text_field :sendername ,:readonly => true%>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <%= f.label :toname %>
+    </td>
+    <td>
+    <%= f.text_field  :toname %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :msg %>
+    </td>
+    <td>
+      <%= f.text_field :msg %>
+    </td>
+  </tr>
+ </table>
+<div class="action"class="actions" style="text-align: center;position: fixed;top: 30%;left: 9%;">
+  <%= f.submit "Send Message"%>
+</div>
+
+<% end %>
+
+<div style="text-align: center;position: fixed;top: 33%;left: 11%;">
+   or
+  <br>
+<%= link_to 'Home', messages_path %>
+</div>
+</div>

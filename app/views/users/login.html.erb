@@ -1,0 +1,34 @@
+
+<div class="mydiv">
+  <div style="text-align: center;position: fixed;left: 46%;">
+  <h1>log in</h1>
+  </div>
+  <div style="text-align: center;position: fixed;top: 44%;left :40%">
+  <%= form_for(@user, url: login_path) do |f| %>
+  <table>
+    <tr>
+      <td>
+	 <%= f.label :email %>
+      </td>
+      <td>
+	 <%= f.text_field :email %>
+      </td>
+    </tr>
+      <tr>
+      <td>
+	<%= f.label :password %>
+      </td>
+      <td>
+	<%= f.password_field :password %>
+      </td>
+    </tr>
+  </table>
+  <div>
+<div class="actions" style="text-align: center;position: fixed;top: 54%;left: 49%;">
+  <%= f.submit "Login" %>
+</div>
+<% end %>
+<div style="text-align: center;position: fixed;top: 67%;left: 45%;">
+Not a user &nbsp; <%= link_to 'sign up', new_user_path %>
+</div>
+</div>
