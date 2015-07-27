@@ -37,8 +37,6 @@ Show/Edit|GET|http://0.0.0.0:3000/addresses/6?authentication_token= 1|_
 Show all tags|GET|http://localhost:3000/admin/tags?parent_id=0&type=c1/c2
 http://localhost:3000/admin/tags?parent_id=0&type=c1/c2&page=2|* Pass page no if required* parent_id: send parent_id* type: either c1 or c2
 Show one tag details|GET|http://localhost:3000/admin/tags/1|_
-Update tag detais
-|PUT|http://localhost:3000/admin/tags/1|{tag: {label: "", name: ""}}
 Destroy tag detail|DELETE|http://localhost:3000/admin/tags/1|_
 Create new tag|POST|http://localhost:3000/admin/tags|{label: "", parent_id: }
 search tags|GET|http://localhost:300/admin/tags/search?q=search_keyword&parent_id=1&type=c1|* q: keywords* parent_id and type
