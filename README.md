@@ -27,16 +27,10 @@ order_curation_tags c1 and c2|POST|http:/192.168.1.18:3000/admin/curation/order_
 new_in_get_tags|GET|http://192.168.1.18:300/admin/curation/new_in_get_tags|nil
 get sales for featured/new|GET|http://0.0.0.0:3000/v1/admin/curation/get_tag_sales?tag_id=1|id
 create_tag|POST|http://localhost:3000/v1/admin/curation/create_tag|{ "tag_name": "","tag_label": "","parent_id": }parent_id => 0 if it is parent tag.
-Show all address|POST|http://0.0.0.0:3000/addresses/show_all|{authentication_token: 1} TODO: Once user integration is done we have to send tokens instead of user_id
-Destroy address |DELETE|http://0.0.0.0:3000/addresses/4|address_id needs to passed.
-Create new address|POST|http://0.0.0.0:3000/addresses/|{    "user": {        "firstname": "raju_addres7",        "address_line": "qwdqwdqwdqwdqwdqwdqw",        "landmark": "qwdqwdqwdqwdqwdqwdqw",        "pincode": "1234567890",        "phone": "1234567890",        "email": "qwdqwdqwd@mail.com",        "city": "dad",        "state": "fd",        "country": "fwefew"    },    "is_default_bill_address": true,    "is_default_ship_address": "false",     "authentication_token": "xcdRNd9Nbk9DPsY2w1VA"}
-Get default bill address|POST|http://localhost:3000//v1/addresses/default_address?type=bill|{        "authentication_token": "QsDWhL_f5w8yAazmmMNK"}
-Get default ship address|POST|http://localhost:3000//v1/addresses/default_address?type=ship|{        "authentication_token": "QsDWhL_f5w8yAazmmMNK"}
-Update address|PUT|http://0.0.0.0:3000/addresses/6|{    "user": {        "firstname": "testing",        "address_line": "test test",        "landmark": "near bakery",        "pincode": "560050",        "phone": "9986099860",        "email": "vijay@styletag.com",        "city": "Bangalore",        "state": "Karnataka",        "country": "USA",        "user_id": "1"    }}
-Show/Edit|GET|http://0.0.0.0:3000/addresses/6?authentication_token= 1|_
-Show all tags|GET|http://localhost:3000/admin/tags?parent_id=0&type=c1/c2
-http://localhost:3000/admin/tags?parent_id=0&type=c1/c2&page=2|* Pass page no if required* parent_id: send parent_id* type: either c1 or c2
+Show all tags|GET|http://localhost:3000/admin/tags?parent_id=0&type=c1/c2 , http://localhost:3000/admin/tags?parent_id=0&type=c1/c2&page=2|* Pass page no if required* parent_id: send parent_id* type: either c1 or c2
 Show one tag details|GET|http://localhost:3000/admin/tags/1|_
+Update tag detais
+|PUT|http://localhost:3000/admin/tags/1|{tag: {label: "", name: ""}}
 Destroy tag detail|DELETE|http://localhost:3000/admin/tags/1|_
 Create new tag|POST|http://localhost:3000/admin/tags|{label: "", parent_id: }
 search tags|GET|http://localhost:300/admin/tags/search?q=search_keyword&parent_id=1&type=c1|* q: keywords* parent_id and type
@@ -70,8 +64,7 @@ search tags for sale tag association|GET|http://localhost:3000//v1/admin/sales/s
 Update variants |PUT|http://localhost:3000//v1/admin/variants/120889|{    "variant": {        "sku": "GHLJ565299",        "stock_on_hand": "10",        "loaded_stock": "10",        "extra_shipping_cost": "54",        "cost_price": "38334.6",        "mrp": "38334.6",        "dmrp": "38334.6",        "dimension_id": "1",        "owner": "indhumathi.mathur@styletag.com",        "weight": "500"    }}
 Edit /Show variants|GET|http://localhost:3000//v1/admin/variants/1/edit|id
 Show all variants|GET|http://localhost:3000//v1/admin/variants|_
-Create new variants based on product|POST
-|http://0.0.0.0:3000/v1/admin/products/create_variant|{ "product_id": 1,"sku": "ABCDSKU-31",  "stock_on_hand" : 10,  "extra_shipping_cost": 0,  "cost_price": 100,  "mrp": 500,  "dmrp": 100,  "dimension_id": 1,  "owner": "Vijay",    "weight": "100gms"}
+Create new variants based on product|POST|http://0.0.0.0:3000/v1/admin/products/create_variant|{ "product_id": 1,"sku": "ABCDSKU-31",  "stock_on_hand" : 10,  "extra_shipping_cost": 0,  "cost_price": 100,  "mrp": 500,  "dmrp": 100,  "dimension_id": 1,  "owner": "Vijay",    "weight": "100gms"}
 Create dimension|POST|http://localhost:3000//v1/admin/dimensions|{    "dimension": {        "metric": "size-ss",        "value": "3.5(UK)"    }}
 update dimension|PUT|http://localhost:3000//v1/admin/dimensions/1|{    "dimension": {        "metric": "size-ss",        "value": "3.5(UK)"    }}
 Show all dimension|GET |http://localhost:3000//v1/admin/dimensions|_
@@ -90,7 +83,6 @@ Carousel filter|GET|http://localhost:3000//v1/admin/carousels/filters|_
 Carousel search|GET|http://localhost:3000//v1/admin/carousels/search?key=name&value=raju|key and value
 get carousel_pins|GET|http://localhost:3000//v1/admin/carousels/carousel_pins?id=1|id
 Search path for carousel|GET|http://localhost:3000//v1/admin/carousels/get_carousel?q=/tag/test|q = search params
-get_carousel for display|GET|http://localhost:3000//v1/carousels/get_carousel?q=/tag/test|q= path
 Show all image|GET|http://localhost:3000//v1/admin/carousel_images|_
 show a image|GET|http://localhost:3000//v1/admin/carousel_images/1|id
 create image|POST|http://localhost:3000//v1/admin/carousel_images|{    "image": {        "path":"/path",        "alternative_text":"text",        "type_id":1    }}
@@ -103,7 +95,6 @@ Destroy pin link|DELETE|http://localhost:3000//v1/admin/pin_links/1|id
 get colour_family filters|GET|http://localhost:3000//v1/admin/products/color_family|_
 get gender filters|GET|http://localhost:3000//v1/admin/products/gender|_
 get tax_codes|GET|http://localhost:3000//v1/admin/products/tax_codes|_
-update user profile|PUT|http://localhost:3000//v1/userupdate|{    "userprofile": {              "name": "raju",        "dob": "1991-11-13",        "city": "neww york",        "phone": "9996099860",        "gender": "male",        "ship_address_id": "1",        "Bill_address_id": "2"    },    "authentication_token": "nRfBD2ace4DyiS9AyTHA"}
 Create Promotion|POST|http://localhost:3000//v1/admin/promotions|{    "promotion": {        "name": "test_man",        "coupon_code": "Test123",        "start_date": "2015-07-21 07:35:47",        "end_date": "2015-07-27 07:35:47",        "description": "hi test promo",                "usage_limit": 10    },        "actions": {            "condition": "AND",            "ruless": "rule things"},        "rules": {            "condition": "AND",            "ruless": "rule things"}}
 Search promotion|GET|http://localhost:3000//v1/admin/promotions/search?q=test|q = name
 Update Promotion|PUT|http://localhost:3000//v1/admin/promotions/9|{    "promotion": {        "name": "test_man",        "coupon_code": "Test123",        "start_date": "2015-07-21 07:35:47",        "end_date": "2015-07-27 07:35:47",        "description": "hi test promo",                "usage_limit": 10    },        "actions": {            "condition": "AND",            "ruless": "rule things"},        "rules": {            "condition": "AND",            "ruless": "rule things"}}
@@ -111,12 +102,13 @@ Edit Promotion|GET|http://localhost:3000//v1/admin/promotions/9/edit|id
 Get Active Promotions|GET|http://localhost:3000//v1/admin/promotions|_
 Propertymaster Seach|GET|http://localhost:3000//v1/admin/propertymasters/search?type=ptype&q=gender|type => ptype or value from filters
 Propertymaster Seach filters|GET|http://localhost:3000//v1/admin/propertymasters/filters|_
-Associate shipping address |POST|http://localhost:3000//v1/checkout/associate_shipping_address|_
-Associate billing address|POST|http://localhost:3000//v1/checkout/associate_billing_address|_
-Add cart Item|POST|http://localhost:3000//v1/checkout/add_cart_item|variant_id, quantity
-Add cart Items|POST|http://localhost:3000//v1/checkout/add_cart_items|cart_items = { }
-remove_cart_item|POST|http://localhost:3000//v1/checkout/remove_cart_item|variant_id
-set_quantity|POST|http://localhost:3000//v1/checkout/set_quantity|variant_id, quantity
-clear_cart|POST|http://localhost:3000//v1/checkout/clear_cart|_
-create_payment|POST|http://localhost:3000//v1/checkout/create_payment|_
-payment_information|POST|http://localhost:3000//v1/checkout/payment_information|order_number
+Get all orders|GET|http://localhost:3000//v1/admin/orders|_
+Get single order|GET|http://localhost:3000//v1/admin/orders/1|order_id
+Edit order bill Address|GET|http://localhost:3000//v1/admin/orders/1/edit?type=bill|order_id and type of address = bill
+Edit order Ship Address|GET|http://localhost:3000//v1/admin/orders/1/edit?type=ship|order_id and type of address = ship
+update order bill address|PUT|http://localhost:3000//v1/admin/orders/1?type=bill|{    "order": {                "bill_firstname": "raj",        "bill_address_line": null,        "bill_pincode": null,        "bill_phone": null,        "bill_landmark": null,        "bill_city": null,        "bill_state": null,        "bill_country": null    }}
+update order ship address|PUT|http://localhost:3000//v1/admin/orders/1?type=ship|{    "order": {                "ship_firstname": "raj",        "ship_address_line": null,        "ship_pincode": null,        "ship_phone": null,        "ship_landmark": null,        "ship_city": null,        "ship_state": null,        "ship_country": null    }}
+Edit OrderItem bill address|GET|http://localhost:3000//v1/admin/orders/1/order_items/1/edit?type=bill|_
+Edit OrderItem ship address|GET|http://localhost:3000//v1/admin/orders/1/order_items/1/edit?type=ship|_
+Update orderitem bill address|PUT|http://localhost:3000//v1/admin/orders/1/order_items/1|{    "orderitem": {        "type": "bill",        "ship_firstname": "gagch",        "ship_address_line": "grbjfugh",        "ship_pincode": "21434234",        "ship_phone": "34122342",        "ship_landmark": "temple",        "ship_city": "cgbhrg",        "ship_state": "gjgrcha",        "ship_country": "ubhacgrf"    }}
+Update orderitem ship address|PUT|http://localhost:3000//v1/admin/orders/1/order_items/1|{    "orderitem": {        "type": "ship",        "ship_firstname": "gagceffh",        "ship_address_line": "grbjfusfgh",        "ship_pincode": "0000000",        "ship_phone": "123456789",        "ship_landmark": "templgefe",        "ship_city": "cgbhrfssdg",        "ship_state": "gjgrcsfhsffa",        "ship_country": "ubhasfcgrf"    }}
