@@ -64,7 +64,7 @@ search tags for sale tag association|GET|http://localhost:3000//v1/admin/sales/s
 Update variants |PUT|http://localhost:3000//v1/admin/variants/120889|{    "variant": {        "sku": "GHLJ565299",        "stock_on_hand": "10",        "loaded_stock": "10",        "extra_shipping_cost": "54",        "cost_price": "38334.6",        "mrp": "38334.6",        "dmrp": "38334.6",        "dimension_id": "1",        "owner": "indhumathi.mathur@styletag.com",        "weight": "500"    }}
 Edit /Show variants|GET|http://localhost:3000//v1/admin/variants/1/edit|id
 Show all variants|GET|http://localhost:3000//v1/admin/variants|_
-Create new variants based on product|POST|http://0.0.0.0:3000/v1/admin/products/create_variant|{ "product_id": 1,"sku": "ABCDSKU-31",  "stock_on_hand" : 10,  "extra_shipping_cost": 0,  "cost_price": 100,  "mrp": 500,  "dmrp": 100,  "dimension_id": 1,  "owner": "Vijay",    "weight": "100gms"}
+Create new variants based on product|POST|http://0.0.0.0:3000/v1/admin/products/create_variant
 Create dimension|POST|http://localhost:3000//v1/admin/dimensions|{    "dimension": {        "metric": "size-ss",        "value": "3.5(UK)"    }}
 update dimension|PUT|http://localhost:3000//v1/admin/dimensions/1|{    "dimension": {        "metric": "size-ss",        "value": "3.5(UK)"    }}
 Show all dimension|GET |http://localhost:3000//v1/admin/dimensions|_
